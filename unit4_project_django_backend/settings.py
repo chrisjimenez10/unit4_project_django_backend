@@ -34,7 +34,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'produce_api',
+    'beverage_department_api',
     'meat_department_api',
+    'snacks_api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'unit4_project_django_backend.urls'
 
@@ -82,6 +86,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'grocery_store_api',
+        'HOST': 'localhost',
     }
 }
 
