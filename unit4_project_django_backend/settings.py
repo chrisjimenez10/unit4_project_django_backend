@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
+    'beverage_department_api',
     'meat_department_api',
     'snacks_api',
     'django.contrib.admin',
@@ -84,6 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'grocery_store_api',
+        'HOST': 'localhost',
     }
 }
 
