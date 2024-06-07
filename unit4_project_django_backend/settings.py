@@ -86,7 +86,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'grocery_store_api',
-        'HOST': 'localhost',
+        # 'HOST': 'localhost',
     }
 }
 
