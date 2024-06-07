@@ -33,10 +33,10 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
+    'produce_api',
     'beverage_department_api',
     'meat_department_api',
-    'rest_framework',
-    'corsheaders',
+    'snacks_api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
