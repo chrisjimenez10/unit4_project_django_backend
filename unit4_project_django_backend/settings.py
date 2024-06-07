@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
+    'produce_api',
     'beverage_department_api',
     'meat_department_api',
     'snacks_api',
