@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'beverage_department_api',
     'meat_department_api',
+    'snacks_api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
