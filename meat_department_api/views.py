@@ -15,5 +15,5 @@ class MeatDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Meat.objects.all().order_by('id')
     serializer_class = MeatSerializer
 
-    #Setting a permission_classes attribute to our Classes to ENSURE that these views (Referring to .RetrieveUpdateDestroyAPIView) are protected and can only be viewed by an authenticated user
+    #Setting a "permission_classes" attribute to our Classes to ENSURE that these views (Referring to ".RetrieveUpdateDestroyAPIView" and ".ListCreateAPIView") are protected and can only be viewed by an authenticated user
     permission_classes = [IsAuthenticated]
