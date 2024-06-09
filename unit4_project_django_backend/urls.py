@@ -17,11 +17,27 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 urlpatterns = [
+    #Admin route
+    path('admin/', admin.site.urls),
+
+    #JWT Token endpoints
+        #This is the URL Endpoint that will handle the generation of access and refresh tokens when user logins with valid credentials
+            #The TokenObtainPairView.as_view() is the view that handles the POST request at the given URL Endpoint by sending user credentials and if valid, response is: 1.Access Token, 2.Refresh Token
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+
+    #This is the URL Endpoint that will handle the client sending the refresh token to the server after access token expires to RECEIVE a new access token, so that future requests remain authenticated
+        #The TokenRefreshView.as_view() handles the POST request at this endpoint. It takes a valid refresh token and returns a new access token
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    #App routes
     path('', include('meat_department_api.urls')),
     path('', include('snacks_api.urls')),
     path('', include('beverage_department_api.urls')),
-    path('admin/', admin.site.urls),
     path('', include('produce_api.urls')),
 ]
