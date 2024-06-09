@@ -6,20 +6,18 @@ from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny
 from .serializers import RegisterSerializer, MeatSerializer, UserSerializer
-
 from .models import Meat
 
-# Create your views here.
+#List + Create Meats View
 class MeatList(generics.ListCreateAPIView):
     queryset = Meat.objects.all().order_by('id')
     serializer_class = MeatSerializer
-
     permission_classes = [IsAuthenticated]
 
+#Single Meat View (GET, PUT, DELETE)
 class MeatDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Meat.objects.all().order_by('id')
     serializer_class = MeatSerializer
-
     #Setting a "permission_classes" attribute to our Classes to ENSURE that these views (Referring to ".RetrieveUpdateDestroyAPIView" and ".ListCreateAPIView") are protected and can only be viewed by an authenticated user
     permission_classes = [IsAuthenticated]
 
@@ -42,4 +40,3 @@ class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
     serializer_class = UserSerializer
-
